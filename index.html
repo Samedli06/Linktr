@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ülvi Rüstəmov | Linktr</title>
+  <title>Ülvi Rüstəmov | FX Energy</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
@@ -33,6 +33,14 @@
     .name {
       font-size: 2.1rem;
       font-weight: bold;
+      color: #fff;
+      margin-bottom: 16px;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+    .name2 {
+      font-size: 1.1rem;
+      font-weight: regular;
       color: #fff;
       margin-bottom: 28px;
       letter-spacing: 1px;
@@ -74,6 +82,98 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
       letter-spacing: 0.5px;
     }
+
+    .dropdown-btn {
+      width: 100%;
+      background: #004798;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 14px 0;
+      margin-bottom: 10px;
+      font-size: 1.08rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      text-align: left;
+      text-indent: 18px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 8px 0 rgba(0,0,0,0.07);
+      position: relative;
+      outline: none;
+    }
+    .dropdown-btn.active {
+      background: #fff;
+      color: #004798;
+      box-shadow: 0 4px 16px 0 rgba(0,0,0,0.10);
+      border: 1.5px solid #004798;
+      z-index: 2;
+    }
+    .dropdown-btn:after {
+      content: '\25BC';
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1rem;
+      transition: transform 0.2s, color 0.2s;
+      color: inherit;
+    }
+    .dropdown-btn.active:after {
+      transform: translateY(-50%) rotate(180deg);
+      color: #004798;
+    }
+    .dropdown-list {
+      width: 100%;
+      background: #fff;
+      color: #222;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px 0 rgba(0,0,0,0.10);
+      border: 1.5px solid #004798;
+      border-top: none;
+      margin-bottom: 18px;
+      padding: 14px 18px 18px 18px;
+      display: none;
+      font-size: 1.01rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      animation: dropdownOpen 0.35s cubic-bezier(0.4,0,0.2,1);
+      z-index: 1;
+      position: relative;
+    }
+    .dropdown-list ul {
+      margin: 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    .dropdown-list li {
+      margin-bottom: 10px;
+      transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+      border-radius: 10px;
+      padding: 8px 12px;
+      background: #f7faff;
+      box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
+      font-size: 0.98em;
+    }
+    .dropdown-list li:hover {
+      background: #eaf2fb;
+      color: #004798;
+      box-shadow: 0 4px 16px 0 rgba(0,71,152,0.07);
+    }
+    .dropdown-list b {
+      color: #004798;
+      font-weight: 700;
+      font-size: 1.04em;
+      letter-spacing: 0.2px;
+      display: block;
+      margin-bottom: 4px;
+      background: none;
+      box-shadow: none;
+      padding: 0;
+    }
+    @keyframes dropdownOpen {
+      from { opacity: 0; transform: translateY(-12px) scaleY(0.95); }
+      to { opacity: 1; transform: translateY(0) scaleY(1); }
+    }
     @media (max-width: 500px) {
       .container {
         padding: 8px 6vw 8px 6vw;
@@ -94,6 +194,17 @@
         margin-bottom: 8px;
         border-radius: 8px;
       }
+      .dropdown-btn {
+        font-size: 0.98rem;
+        padding: 12px 0;
+        border-radius: 8px;
+        text-indent: 10px;
+      }
+      .dropdown-list {
+        font-size: 0.92rem;
+        padding: 10px 6px 10px 6px;
+        border-radius: 12px;
+      }
     }
     @media (max-width: 350px) {
       .container {
@@ -103,6 +214,7 @@
       .name {
         font-size: 0.85rem;
       }
+    
       .desc {
         font-size: 0.7rem;
       }
@@ -117,12 +229,97 @@
 <body>
   <div class="container">
     <div class="name">Ülvi Rüstəmov</div>
-    
+    <div class="name2">İcraçı Direktor | FX Energy</div>
     <a class="link-btn" href="https://www.webbdecolighting.com" target="_blank">Webb Deco Lighting</a>
     <a class="link-btn" href="https://www.kinoela.com" target="_blank">Kinoela</a>
+
     <a class="contact" href="tel:0506139133"><span>050 613 91 33</span></a>
     <a class="contact" href="tel:0995999959"><span>099 599 99 59</span></a>
     <a class="contact" href="mailto:ulvirustemov@fxenergy.az"><span>ulvirustemov@fxenergy.az</span></a>
+
+    <button class="dropdown-btn" onclick="toggleDropdown('done-projects')">Tamamlanmış layihələr</button>
+    <div class="dropdown-list" id="done-projects">
+      <ul>
+        <li><b>Port Baku Pavilyon:</b>
+          <ul>
+            <li>Kenny’s Restoran (MEP)</li>
+            <li>PİMS Restoran (MEP)</li>
+          </ul>
+        </li>
+        <li><b>28 Mall:</b>
+          <ul>
+            <li>ARZUM Mağaza (MEP)</li>
+            <li>HONOR Mağaza (MEP)</li>
+          </ul>
+        </li>
+        <li><b>Tarqovaya:</b>
+          <ul>
+            <li>Burger Yiyəlim Restoran (Elektrik işləri)</li>
+          </ul>
+        </li>
+        <li><b>Ağ şəhər:</b>
+          <ul>
+            <li>Zaman meydanı (Elektrik işləri, CB-11 binası yanğın siqnalizasiya işləri)</li>
+            <li>Fəvvarələr meydanı parkı (Elektrik işləri, CB-11 binası yanğın siqnalizasiya işləri)</li>
+          </ul>
+        </li>
+        <li><b>Port Baku Tower 2:</b>
+          <ul>
+            <li>COFFEE ATTACK</li>
+          </ul>
+        </li>
+        <li><b>Port Baku WALK:</b>
+          <ul>
+            <li>CupCup Restoran</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <button class="dropdown-btn" onclick="toggleDropdown('ongoing-projects')">Davam edən layihələr</button>
+    <div class="dropdown-list" id="ongoing-projects">
+      <ul>
+        <li><b>Port Baku Tower 2:</b>
+          <ul>
+            <li>MilkBar Restoran</li>
+          </ul>
+        </li>
+        <li><b>Port Baku WALK:</b>
+          <ul>
+            <li>Novikov Restoran</li>
+          </ul>
+        </li>
+        <li><b>CresCent MALL:</b>
+          <ul>
+            <li>Hamam Bath Spa</li>
+          </ul>
+        </li>
+        <li><b>Ağ Şəhər:</b>
+          <ul>
+            <li>FMP MALL</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
   </div>
+  <script>
+    function toggleDropdown(id) {
+      var btn = document.querySelector('button[onclick*="' + id + '"]');
+      var el = document.getElementById(id);
+      var isOpen = el.style.display === 'block';
+      // Bağla
+      document.querySelectorAll('.dropdown-list').forEach(function(list) {
+        list.style.display = 'none';
+      });
+      document.querySelectorAll('.dropdown-btn').forEach(function(b) {
+        b.classList.remove('active');
+      });
+      // Aç
+      if (!isOpen) {
+        el.style.display = 'block';
+        btn.classList.add('active');
+      }
+    }
+  </script>
 </body>
 </html> 
